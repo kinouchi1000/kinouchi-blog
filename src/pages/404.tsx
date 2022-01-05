@@ -8,9 +8,9 @@ import styles from '../styles/Home.module.css'
 
 const Custom404: NextPage = () => {
   return (
-    <main className='main'>
-      <p>ページがありません。</p>
-    </main>
+    <div className='container mx-auto'>
+      <p className='font-bold'>ページがありません。404</p>
+    </div>
   )
 }
 
