@@ -11,7 +11,7 @@ import type { Article, Articles } from '../interface/Article'
 export const Home: NextPage = ({ blog }: { children?: ReactNode; blog?: Article[] }) => {
   return (
     <Layout>
-      <h1 className={styles.title}>Welcome to my blog!</h1>
+      <h1 className='text-5xl leading-tight'>Welcome to my blog!</h1>
       <div>
         <ul>
           {blog &&
