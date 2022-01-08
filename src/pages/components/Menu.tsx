@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode } from 'react'
+import React, { useState, useLayoutEffect, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import { Dropdown } from './Dropdown'
 import { FaHome } from 'react-icons/fa'
@@ -9,11 +9,11 @@ export const Menu: NextPage = () => {
   const [isOpen, setIsOpen] = useState('')
   const [categories, setCategories] = useState<Category[] | undefined>(undefined)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetch = async () => {
       const subCategories: SubCategories = await client.get({ endpoint: 'subcategory' })
       const mainCategories: MainCategories = await client.get({ endpoint: 'maincategory' })
-      // データ整形
+      // データ整形 --ここの処理が遅い。。。
       const category: Category[] = []
       mainCategories.contents.map((mc) => {
         const SC: SubCategory[] = []
@@ -39,17 +39,16 @@ export const Menu: NextPage = () => {
             </div>
           </a>
 
-          {categories &&
-            categories.map((c) => (
-              <>
-                <Dropdown
-                  isOpen={isOpen}
-                  onClick={setIsOpen}
-                  Name={c.category}
-                  subCategories={c.subCategories}
-                />
-              </>
-            ))}
+          {categories?.map((c) => (
+            <>
+              <Dropdown
+                isOpen={isOpen}
+                onClick={setIsOpen}
+                Name={c.category}
+                subCategories={c.subCategories}
+              />
+            </>
+          ))}
         </div>
       </div>
     </div>
