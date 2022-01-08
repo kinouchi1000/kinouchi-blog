@@ -1,20 +1,19 @@
-import React, { Children, useState, ReactNode, ObjectHTMLAttributes } from 'react'
+import React, { Children, useContext, useState, ReactNode, ObjectHTMLAttributes } from 'react'
+import { CategoriesContext } from '../index'
 import type { NextPage } from 'next'
 import { VscTriangleDown } from 'react-icons/vsc'
 
-interface menuitem {
-  name: string
-  ref: string
-}
 interface Props {
   isOpen: string
   onClick: (name: string) => void
   Name: string
   Icon: React.ReactElement
-  contents: menuitem[]
 }
 
-export const Dropdown: React.FC<Props> = ({ isOpen, onClick, Name, Icon, contents }) => {
+export const Dropdown: React.FC<Props> = ({ isOpen, onClick, Name, Icon }) => {
+  const categories = useContext(CategoriesContext)
+  const subCategories = categories?.find((c) => c.category == Name)
+  console.log(subCategories)
   return (
     <>
       <a
@@ -33,16 +32,16 @@ export const Dropdown: React.FC<Props> = ({ isOpen, onClick, Name, Icon, content
           <>
             <div className='absolute top-10 z-10 w-32 text-base list-none bg-white dark:bg-gray-600 rounded divide-y divide-gray-100 shadow'>
               <ul className='py-1'>
-                {contents &&
-                  contents.map((content) => {
+                {subCategories &&
+                  subCategories.subCategories.map((category) => {
                     return (
                       <>
                         <li>
                           <a
-                            href={content.ref}
+                            href={category.id}
                             className='block py-2 px-4 text-sm text-gray-700 dark:text-gray-200 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600'
                           >
-                            {content.name}
+                            {category.category}
                           </a>
                         </li>
                       </>

@@ -1,11 +1,7 @@
 // pages/blog/[id].js
 import { ReactNode } from 'react'
 import type { NextPage } from 'next'
-import Link from 'next/link'
 import { client } from '../api/client'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { Layout } from '../layout'
 
 interface Article {
@@ -47,7 +43,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: Context) => {
   const id = context.params.id
   const data: Article = await client.get({ endpoint: 'blog', contentId: id })
-
   return {
     props: {
       blog: data,

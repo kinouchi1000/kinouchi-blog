@@ -1,26 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState, useEffect, ReactNode } from 'react'
+import { CategoriesContext } from '../index'
 import type { NextPage } from 'next'
+import { GetStaticProps } from 'next'
 import { Dropdown } from './Dropdown'
 import { FaHome, FaCode, FaMusic } from 'react-icons/fa'
 import { ImEarth } from 'react-icons/im'
+import { client } from '../api/client'
 
-//microcmsから引っ張る-----
-interface menuitem {
-  name: string
-  ref: string
-}
-const contents: menuitem[] = [
-  { name: 'content1', ref: '#' },
-  { name: 'content2', ref: '#' },
-]
-const contents2: menuitem[] = [
-  { name: 'aaa', ref: '#' },
-  { name: 'bbb', ref: '#' },
-]
-//------
 export const Menu: NextPage = () => {
   const [isOpen, setIsOpen] = useState('')
-
+  const categories = useContext(CategoriesContext)
   return (
     <div className='h-10 bg-neutral-900'>
       <div className='justify-center mx-auto w-4/5'>
@@ -32,30 +21,17 @@ export const Menu: NextPage = () => {
             </div>
           </a>
 
-          {/* Code */}
-          <Dropdown
-            isOpen={isOpen}
-            onClick={setIsOpen}
-            Name='CODE'
-            Icon={<FaCode className='text-2xl fill-white' />}
-            contents={contents}
-          />
-          {/* MUSIC */}
-          <Dropdown
-            isOpen={isOpen}
-            onClick={setIsOpen}
-            Name='MUSIC'
-            Icon={<FaMusic className='text-2xl fill-white' />}
-            contents={contents2}
-          />
-          {/* LIFE */}
-          <Dropdown
-            isOpen={isOpen}
-            onClick={setIsOpen}
-            Name='LIFE'
-            Icon={<ImEarth className='text-2xl fill-white' />}
-            contents={contents}
-          />
+          {categories &&
+            categories.map((c) => (
+              <>
+                <Dropdown
+                  isOpen={isOpen}
+                  onClick={setIsOpen}
+                  Name={c.category}
+                  Icon={<FaCode className='text-2xl fill-white' />}
+                />
+              </>
+            ))}
         </div>
       </div>
     </div>
