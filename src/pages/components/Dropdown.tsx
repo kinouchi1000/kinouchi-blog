@@ -27,6 +27,12 @@ export const Dropdown: React.FC<Props> = ({ isOpen, onClick, Name, subCategories
     if (i.name === Name) return true
   })?.icons
 
+<<<<<<< HEAD
+=======
+export const Dropdown: React.FC<Props> = ({ isOpen, onClick, Name, Icon }) => {
+  const categories = useContext(CategoriesContext)
+  const subCategories = categories?.find((c) => c.category == Name)
+>>>>>>> f7fb7cbcf1bcb81cb9cb3ab6ef270850826da7ee
   return (
     <>
       <a
@@ -43,7 +49,7 @@ export const Dropdown: React.FC<Props> = ({ isOpen, onClick, Name, subCategories
 
         {isOpen === Name && (
           <>
-            <div className='absolute top-10 z-10 w-32 text-base list-none bg-white dark:bg-gray-600 rounded divide-y divide-gray-100 shadow'>
+            <div className='absolute top-10 z-10 w-32 text-base list-none bg-gray-100 rounded divide-y divide-gray-100 shadow'>
               <ul className='py-1'>
                 {subCategories &&
                   subCategories.map((category) => {
@@ -51,8 +57,13 @@ export const Dropdown: React.FC<Props> = ({ isOpen, onClick, Name, subCategories
                       <>
                         <li>
                           <a
+<<<<<<< HEAD
                             href={category.ref}
                             className='block py-2 px-4 text-sm text-gray-700 dark:text-gray-200 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600'
+=======
+                            href={category.id}
+                            className='block py-2 px-4 text-sm text-gray-700 hover:bg-gray-300'
+>>>>>>> f7fb7cbcf1bcb81cb9cb3ab6ef270850826da7ee
                           >
                             {category.category}
                           </a>
