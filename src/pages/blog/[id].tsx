@@ -6,6 +6,7 @@ import { client } from '../api/client'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { Layout } from '../layout'
 
 interface Article {
   id: string
@@ -22,7 +23,7 @@ interface Contents {
 
 export default function BlogId({ children, blog }: { children?: ReactNode; blog?: Article }) {
   return (
-    <main>
+    <Layout>
       <h1>{blog && blog.title}</h1>
       <p>{blog && blog.publishedAt}</p>
       <div
@@ -30,7 +31,7 @@ export default function BlogId({ children, blog }: { children?: ReactNode; blog?
           __html: `${blog && blog.body}`,
         }}
       />
-    </main>
+    </Layout>
   )
 }
 
