@@ -2,11 +2,7 @@ import { ReactNode, createContext, useContext } from 'react'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import { client } from './api/client'
-import { Head } from './components/Head'
-import { Menu } from './components/Menu'
 import { Layout } from './layout'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 
 //ブログinterface
 interface Article {
@@ -57,7 +53,7 @@ export const Home: NextPage = ({
   return (
     <CategoriesContext.Provider value={categories}>
       <Layout>
-        <h1 className={styles.title}>Welcome to my blog!</h1>
+        <h1 className='m-0 text-6xl leading-tight'>Welcome to my blog!</h1>
         <div>
           <ul>
             {blog &&
