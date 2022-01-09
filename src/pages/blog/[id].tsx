@@ -1,7 +1,7 @@
 // pages/blog/[id].js
 import { ReactNode } from 'react'
 import { client } from '../api/client'
-import { Layout } from '../layout'
+import { Layout } from '../components/layout'
 import type { Article, Articles, Content } from '../../interface/Article'
 import {RichWrapper} from './richWrapper'
 

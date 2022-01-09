@@ -5,3 +5,4 @@ export const RichWrapper = styled.div`
   color: red;
   font-weight: bold;
 `
+export default RichWrapper

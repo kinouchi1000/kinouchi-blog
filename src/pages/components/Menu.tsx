@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, ReactNode } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import { Dropdown } from './Dropdown'
 import { FaHome } from 'react-icons/fa'
@@ -9,7 +9,7 @@ export const Menu: NextPage = () => {
   const [isOpen, setIsOpen] = useState('')
   const [categories, setCategories] = useState<Category[] | undefined>(undefined)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const fetch = async () => {
       const subCategories: SubCategories = await client.get({ endpoint: 'subcategory' })
       const mainCategories: MainCategories = await client.get({ endpoint: 'maincategory' })

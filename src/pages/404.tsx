@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Layout } from './layout'
+import { Layout } from './components/layout'
 
 const Custom404: NextPage = () => {
   return (
