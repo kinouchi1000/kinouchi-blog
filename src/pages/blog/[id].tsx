@@ -3,17 +3,20 @@ import { ReactNode } from 'react'
 import { client } from '../api/client'
 import { Layout } from '../layout'
 import type { Article, Articles, Content } from '../../interface/Article'
+import {RichWrapper} from './richWrapper'
 
 export default function BlogId({ blog }: { children?: ReactNode; blog?: Article }) {
   return (
     <Layout>
-      <h1>{blog && blog.title}</h1>
+      <h1 className='text-5xl'>{blog && blog.title}</h1>
       <p>{blog && blog.publishedAt}</p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog && blog.body}`,
-        }}
-      />
+      <RichWrapper>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${blog && blog.body}`,
+          }}
+        />
+      </RichWrapper>
     </Layout>
   )
 }

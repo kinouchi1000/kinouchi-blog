@@ -11,7 +11,6 @@ export const Layout: React.FC = ({ children }) => {
       <main className='flex flex-col flex-1 justify-center items-center px-4 min-h-screen'>
         {children}
       </main>
-
       {/* フッター */}
       <footer className='flex flex-1 justify-center items-center px-2 h-10 bg-gray-200'>
         <a
