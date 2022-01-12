@@ -1,6 +1,7 @@
 import { FaArrowRight } from 'react-icons/fa'
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const Profile: React.FC = () => {
   return (
@@ -19,10 +20,12 @@ export const Profile: React.FC = () => {
           某大学で機械学習を学ぶ傍ら，趣味としてWeb開発と音楽活動に勤しむ学生です．
           まだまだ未熟な僕と一緒に勉強していきましょう．
         </p>
-        <a href='' className='flex items-center mb-1 space-x-2 text-cyan-600'>
-          <p>Show More</p>
-          <FaArrowRight className='text-cyan-600' />
-        </a>
+        <Link href='/blog/4toageima'>
+          <a href='' className='flex items-center mb-1 space-x-2 text-cyan-600'>
+            <p>Show More</p>
+            <FaArrowRight className='text-cyan-600' />
+          </a>
+        </Link>
       </div>
     </div>
   )

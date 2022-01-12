@@ -8,6 +8,12 @@ export interface Article {
   }
   abstract: string
   body: string
+  category: {
+    subCategory: string
+    mainCategory: {
+      category: string
+    }
+  }
   publishedAt: Date
   updatedAt: Date
 }

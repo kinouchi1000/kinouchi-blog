@@ -1,6 +1,7 @@
 import { Head } from './Head'
 import { Menu } from './Menu'
 import { Profile } from './Profile'
+import { Fotter } from './Fotter'
 
 export const Layout: React.FC = ({ children }) => {
   return (
@@ -18,15 +19,7 @@ export const Layout: React.FC = ({ children }) => {
         </div>
       </main>
       {/* フッター */}
-      <footer className='flex flex-1 justify-center items-center px-2 h-10 bg-gray-200'>
-        <a
-          href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Powered by Next.js
-        </a>
-      </footer>
+      <Fotter />
     </div>
   )
 }

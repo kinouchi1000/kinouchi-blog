@@ -1,7 +1,7 @@
 {
   "extends": ["next", "next/core-web-vitals", "prettier", "plugin:tailwindcss/recommended"],
   // tailwind.config.js などの config ファイル、ESLint の対象外にする
-  "ignorePatterns": ["*.config.js"]
+  "ignorePatterns": ["*.config.js", "src/pages/components/Twitter.tsx"]
 
   // アルファベット順に並ぶようにしていたが、却下
   // "rules": {
