@@ -1,8 +1,15 @@
 export interface Article {
   id: string
   title: string
+  abstractPic: {
+    url: string
+    height: number
+    width: number
+  }
+  abstract: string
   body: string
-  publishedAt?: Date
+  publishedAt: Date
+  updatedAt: Date
 }
 export interface Articles {
   contents: Article[]

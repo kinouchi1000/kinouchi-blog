@@ -7,22 +7,13 @@ import { Layout } from './components/layout'
 import styles from '../styles/Home.module.css'
 import type { SubCategories, MainCategories, SubCategory, Category } from '../interface/Category'
 import type { Article, Articles } from '../interface/Article'
+import { AbstractCard } from './components/AbstractCard'
 
 export const Home: NextPage = ({ blog }: { children?: ReactNode; blog?: Article[] }) => {
   return (
     <Layout>
-      <h1 className='text-5xl leading-tight text-center bottom-2'>Welcome to Kinouchi blog</h1>
       <div>
-        <ul>
-          {blog &&
-            blog.map((article) => (
-              <li key={article.id}>
-                <Link href={`/blog/${article.id}`}>
-                  <a>{article.title}</a>
-                </Link>
-              </li>
-            ))}
-        </ul>
+        {blog && blog.map((article) => <AbstractCard article={article} key={article.id} />)}
       </div>
     </Layout>
   )
