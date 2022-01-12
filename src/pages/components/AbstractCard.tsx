@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import dayjs from 'dayjs'
+import { Tag } from './Tag'
 import 'dayjs/locale/ja' // これimportしないとエラー吐かれる
 
 interface Props {
@@ -15,6 +16,7 @@ export const AbstractCard: React.FC<Props> = ({ article }) => {
     .locale('ja')
     .format('YYYY/MM/DD(hh:mm:ss)')
   const updatedYMDT: string = dayjs(article.updatedAt).locale('ja').format('YYYY/MM/DD(hh:mm:ss)')
+
   return (
     <>
       <div className='my-3 rounded border shadow-md'>
@@ -34,8 +36,18 @@ export const AbstractCard: React.FC<Props> = ({ article }) => {
               className='rounded-md'
             />
           </div>
-          <div className='p-1 m-10'>
+          <div className='p-1 mx-10 mt-5 mb-2'>
             <p className='text-lg font-medium text-gray-600'>{article.abstract}</p>
+          </div>
+
+          <div className='flex flex-wrap p-2 my-3 mx-10 h-fit'>
+            {article.category.map((category) => {
+              return (
+                <>
+                  <Tag tagName={category.subCategory} />
+                </>
+              )
+            })}
           </div>
         </a>
       </div>

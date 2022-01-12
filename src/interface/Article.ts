@@ -13,7 +13,7 @@ export interface Article {
     mainCategory: {
       category: string
     }
-  }
+  }[]
   publishedAt: Date
   updatedAt: Date
 }
