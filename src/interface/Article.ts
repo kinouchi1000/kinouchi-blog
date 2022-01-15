@@ -1,14 +1,13 @@
+import type { Pic } from './Pic'
+import type { Category } from './Category'
 export interface Article {
   id: string
   title: string
-  abstractPic: {
-    url: string
-    height: number
-    width: number
-  }
+  abstractPic: Pic
   abstract: string
   body: string
   category: {
+    id: string
     subCategory: string
     mainCategory: {
       category: string

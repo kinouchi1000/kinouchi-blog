@@ -10,7 +10,11 @@
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'"
   },
   "dependencies": {
+    "@types/cheerio": "^0.22.30",
+    "@types/highlight.js": "^10.1.0",
+    "cheerio": "^1.0.0-rc.10",
     "dayjs": "^1.10.7",
+    "highlight.js": "^11.4.0",
     "microcms-js-sdk": "^2.0.0",
     "next": "12.0.7",
     "react": "17.0.2",

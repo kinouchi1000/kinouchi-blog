@@ -44,7 +44,7 @@ export const AbstractCard: React.FC<Props> = ({ article }) => {
             {article.category.map((category) => {
               return (
                 <>
-                  <Tag tagName={category.subCategory} />
+                  <Tag tagName={category.subCategory} key={category.id} />
                 </>
               )
             })}
