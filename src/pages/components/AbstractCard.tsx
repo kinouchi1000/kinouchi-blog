@@ -54,3 +54,5 @@ export const AbstractCard: React.FC<Props> = ({ article }) => {
     </>
   )
 }
+
+export default AbstractCard

@@ -13,3 +13,4 @@ export const Tag: React.FC<Props> = ({ tagName }) => {
     </>
   )
 }
+export default Tag
