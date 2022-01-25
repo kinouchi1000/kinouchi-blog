@@ -1,9 +1,9 @@
-import type { Article } from '../../interface/Article'
+import type { Article } from '../../../interface/Article'
 import { ReactNode } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import dayjs from 'dayjs'
-import { Tag } from './Tag'
+import { Tag } from '../Tag'
 import 'dayjs/locale/ja' // これimportしないとエラー吐かれる
 
 interface Props {

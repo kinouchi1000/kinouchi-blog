@@ -1,7 +1,7 @@
-import { Head } from './Head'
-import { Menu } from './Menu'
-import { Profile } from './Profile'
-import { Fotter } from './Fotter'
+import { Head } from '../Organisms/Head'
+import { Menu } from '../Molecules/Menu'
+import { Profile } from '../Organisms/Profile'
+import { Fotter } from '../Organisms/Fotter'
 
 export const Layout: React.FC = ({ children }) => {
   return (

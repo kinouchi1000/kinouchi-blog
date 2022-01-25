@@ -1,9 +1,9 @@
 import React, { useState, useEffect, ReactNode } from 'react'
 import type { NextPage } from 'next'
-import { Dropdown } from './Dropdown'
+import { Dropdown } from '../Atoms/Dropdown'
 import { FaHome } from 'react-icons/fa'
-import { client } from '../api/client'
-import { Category, SubCategories, SubCategory, MainCategories } from '../../interface/Category'
+import { client } from '../../api/client'
+import { Category, SubCategories, SubCategory, MainCategories } from '../../../interface/Category'
 
 export const Menu: NextPage = () => {
   const [isOpen, setIsOpen] = useState('')
@@ -13,7 +13,7 @@ export const Menu: NextPage = () => {
     const fetch = async () => {
       const subCategories: SubCategories = await client.get({ endpoint: 'subcategory' })
       const mainCategories: MainCategories = await client.get({ endpoint: 'maincategory' })
-      // データ整形 --ここの処理が遅い。。。
+      // データ整形 --ここの処理が遅い。
       const category: Category[] = []
       mainCategories.contents.map((mc) => {
         const SC: SubCategory[] = []
