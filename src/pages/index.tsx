@@ -4,29 +4,31 @@ import { client } from './api/client'
 import { Layout } from './components/Templates/layout'
 import type { Article, Articles } from '../interface/Article'
 import { AbstractCard } from './components/Organisms/AbstractCard'
+import { Pagenation } from './components/Molecules/Pagenation'
 
 export const Home: NextPage = ({ blog }: { children?: ReactNode; blog?: Article[] }) => {
-  const cardNo: number = 10
-  const [cardNoFrom, setCardNoFrom] = useState<number>(1)
+  const showCardNo: number = 5
+  const [cardNoFrom, setCardNoFrom] = useState<number>(0)
 
   if (blog === undefined) {
     return <>バックエンドと通信できませんでした。</>
   }
 
-  const nextPageButtonHandler = () => {
-    if (blog?.length > cardNoFrom + cardNo) {
-      setCardNoFrom(cardNoFrom + cardNo)
-    }
-  }
-  const backPageButtonHandler = () => {
-    setCardNoFrom(cardNoFrom - cardNo)
-  }
+  const showBlog: Article[] = blog.slice(cardNoFrom, cardNoFrom + showCardNo)
 
   return (
     <Layout>
       <div>
-        {blog && blog.map((article) => <AbstractCard article={article} key={article.id} />)}
+        {showBlog.map((article) => (
+          <AbstractCard article={article} key={article.id} />
+        ))}
       </div>
+      <Pagenation
+        showCardNo={showCardNo}
+        allCardNo={blog.length}
+        cardNoFrom={cardNoFrom}
+        setCardNoFrom={setCardNoFrom}
+      />
     </Layout>
   )
 }
