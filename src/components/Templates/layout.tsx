@@ -10,10 +10,10 @@ export const Layout: React.FC = ({ children }) => {
       <Head />
       <Menu />
 
-      <main className='justify-center items-center p-5 my-5 mx-auto w-4/5'>
-        <div className='flex space-x-4'>
-          <div className='w-3/4'>{children}</div>
-          <div className='w-1/4'>
+      <main className='justify-center items-center p-5 my-5 mx-auto md:w-4/5'>
+        <div className='md:flex md:space-x-4'>
+          <div className='m-2 w-auto md:w-3/4'>{children}</div>
+          <div className='m-2 w-auto md:w-1/4'>
             <Profile />
           </div>
         </div>

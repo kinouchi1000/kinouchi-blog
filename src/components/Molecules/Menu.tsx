@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 import { Dropdown } from '../Atoms/Dropdown'
 import { FaHome } from 'react-icons/fa'
 import { client } from '../../api/client'
-import { Category, SubCategories, SubCategory, MainCategories } from '../../../interface/Category'
+import { Category, SubCategories, SubCategory, MainCategories } from '../../interface/Category'
 
 export const Menu: NextPage = () => {
   const [isOpen, setIsOpen] = useState('')
@@ -40,14 +40,13 @@ export const Menu: NextPage = () => {
           </a>
 
           {categories?.map((c) => (
-            <>
-              <Dropdown
-                isOpen={isOpen}
-                onClick={setIsOpen}
-                Name={c.category}
-                subCategories={c.subCategories}
-              />
-            </>
+            <Dropdown
+              isOpen={isOpen}
+              onClick={setIsOpen}
+              Name={c.category}
+              subCategories={c.subCategories}
+              key={c.id}
+            />
           ))}
         </div>
       </div>

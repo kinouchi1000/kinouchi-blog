@@ -4,8 +4,8 @@ import cheerio from 'cheerio'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/night-owl.css'
 
-import { client } from '../api/client'
-import { Layout } from '../components/Templates/layout'
+import { client } from '../../api/client'
+import { Layout } from '../../components/Templates/layout'
 import type { Article, Articles, Content } from '../../interface/Article'
 import { RichWrapper } from './richWrapper'
 

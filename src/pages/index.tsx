@@ -1,10 +1,10 @@
 import { ReactNode, useState } from 'react'
 import type { NextPage } from 'next'
-import { client } from './api/client'
-import { Layout } from './components/Templates/layout'
+import { client } from '../api/client'
+import { Layout } from '../components/Templates/layout'
 import type { Article, Articles } from '../interface/Article'
-import { AbstractCard } from './components/Organisms/AbstractCard'
-import { Pagenation } from './components/Molecules/Pagenation'
+import { AbstractCard } from '../components/Organisms/AbstractCard'
+import { Pagenation } from '../components/Molecules/Pagenation'
 
 export const Home: NextPage = ({ blog }: { children?: ReactNode; blog?: Article[] }) => {
   const showCardNo: number = 5

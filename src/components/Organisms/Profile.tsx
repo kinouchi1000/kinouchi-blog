@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const Profile: React.FC = () => {
   return (
-    <div className='my-3 w-80 h-auto rounded border shadow-md'>
+    <div className='my-3 w-auto h-auto rounded border shadow-md md:w-80'>
       <Image
         width={320}
         height={180}
